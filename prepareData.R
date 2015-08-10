@@ -2,7 +2,7 @@
 
 loadData <- function() {
 	#loading data
-	dataS <- read.csv("smallData.txt", header = TRUE, sep=";")
+	data <- read.csv("smallData.txt", header = TRUE, sep=";")
 	#data <- read.csv("household_power_consumption.txt", header = TRUE, sep=";")
 	data$Date <- as.Date(data$Date, "%d/%m/%Y")
 	data$Global_active_power <- as.numeric(data$Global_active_power)
@@ -13,4 +13,6 @@ loadData <- function() {
 	temp <- paste(data$Date, data$Time)
 	data$FullDate <- strptime(temp, "%Y-%m-%d %H:%M:%S")
 	sapply(data, class)
+
+	return(data)
 }

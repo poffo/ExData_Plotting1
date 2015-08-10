@@ -2,10 +2,14 @@
 
 plot2 <- function() {
 	source("prepareData.R")
-	loadData()
+	data <- loadData()
+
+	png(filename = "plot2.png",
+    width = 480, height = 480, units = "px", pointsize = 12,
+     bg = "white")
 
 	#creating plot2
-	pdf(file="plot2.pdf")
 	with(data, plot(FullDate, Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab=""))
+
 	dev.off()
 }
